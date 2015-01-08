@@ -53,17 +53,46 @@ define(function(require, exports, module){
     //chain(connect, loadClipboard, clipboardLoad);
 
     function ModalViewModel(){
-        
-        $(".uifn_generate_pict").click(function(e){
-            $.getJSON("http://uifaces.com/api/v1/random", function($picture){
-                var previewBox = $(".uifn_user_picture_box");
+        var previewBox = $(".uifn_user_picture_box"),
+            imgSize = $('input[name=img-size]:checked').val(),
+            img,
+            $urlInput = $(".urlInput");
 
-                previewBox.children("img").attr("src", $picture.image_urls.epic);
-                $(".uifn_user_name").text($picture.username);
+        $(".uifn_generate_pict").on("click", function(e){
+            $.getJSON("http://uifaces.com/api/v1/random", function($picture){
+
+                switch(imgSize){
+                    case "128":
+                        img = $picture.image_urls.epic;
+                        break;
+                    
+                    case "73":
+                        img = $picture.image_urls.bigger;
+                        break;
+                        
+                    case "48":
+                        img = $picture.image_urls.normal;
+                        break;
+                    
+                    case "24":
+                        img = $picture.image_urls.mini;
+                        break;
+                        
+                    default:
+                        img = "http://placehold.it/128x128&text=ERROR";
+                }
                 
-                $(".uifn_picture_url>input").val(function(){
-                    return $picture.username;
+                previewBox.children("img").attr("src", img);
+                
+                $urlInput.val(function(){
+                    return img;
+                }).on("click", function(){
+                    $(this).select();
                 });
+                
+                $(".uifn_user_name")
+                    .attr("href", "http://uifaces.com/"+$picture.username)
+                    .text($picture.username);
                  
             });
         });
@@ -83,17 +112,17 @@ define(function(require, exports, module){
             });
         });*/
 
-        this.url = ko.computed(function(){
+        /*this.url = ko.computed(function(){
             var url = 'http://lorempicsum.com/' +
                 (this.theme() != 0? this.theme() : '')+ '/'+
                 this.width() + '/' +
                 this.height() + '/' +
                 this.image();
             return url;
-        }, this);
+        }, this);*/
         
 
-        this.onPreview = _.bind(function(model, event){
+        /*this.onPreview = _.bind(function(model, event){
             var previewBox = $('.preview-box');
 
             previewBox.empty();
@@ -110,21 +139,21 @@ define(function(require, exports, module){
         this.select = function(model, event){
             $(event.target).select();
             return true;
-        }
+        }*/
 
         this.onUrlCopy = _.bind(function(model, event){
             nodeConnection.domains.clipboard.callCopy(this.url());
         }, this);
 
-        this.onUrlInsert = _.bind(function(model, event){
+        this.onPictInsert = _.bind(function(model, event){
             var currentDoc = DocumentManager.getCurrentDocument(),
                 editor = EditorManager.getCurrentFullEditor(),
                 pos = editor.getCursorPos(),
                 posEnd;
 
-            currentDoc.replaceRange(this.url(), pos);
+            currentDoc.replaceRange(img, pos);
             posEnd = $.extend({}, pos);
-            posEnd.ch += this.url().length;
+            posEnd.ch += img.length;
 
             editor.focus();
             editor.setSelection(pos, posEnd);

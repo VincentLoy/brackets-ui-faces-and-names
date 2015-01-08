@@ -4,7 +4,7 @@
 }
 
 .ext_uifn{
-    width: 900px;
+    width: 890px;
 }
 
 .ext_uifn .modal-body{
@@ -12,8 +12,14 @@
 }
 
 .ext_uifn .uifn_box{
-    width: 400px;
+    width: 420px;
+    padding: 0 10px;
     float: left;
+    box-sizing: border-box;
+}
+
+.ext_uifn .uifn_box:nth-of-type(1){
+    border-right: 1px solid #ccc;
 }
 
 .ext_uifn .uifn_user{
@@ -26,14 +32,22 @@
 
 
 .ext_uifn .uifn_user_picture_box{
-    display: table;
+    position: relative;
     margin: auto;
     width: 128px;
     height: 128px;
-    overflow: hidden;
-    border-radius: 50%;
-    border: 2px solid #4F82E9;
     margin-bottom: 25px;
+}
+
+.ext_uifn .uifn_user_picture_box > img{
+    border-radius: 2px;
+    border: 2px solid #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 
 .ext_uifn .uifn_picture_url{
@@ -74,7 +88,7 @@
 
 .ext_uifn input.url{
     width: 320px;
-    margin-bottom: 2px;
+    margin: 2px auto;
     color: rgb(85, 85, 85);
     padding: 4px 6px;
     border-radius: 4px;

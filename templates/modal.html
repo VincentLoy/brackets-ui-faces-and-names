@@ -10,30 +10,38 @@
             <h3>UI Faces</h3>
             <hr>
             <p class="uifn_user">
-                picture of <span class="uifn_user_name"></span>
+                picture of <a href="" class="uifn_user_name"></a>
             </p>
             <div class="uifn_user_picture_box">
                 <img src="http://placehold.it/128x128">
             </div>
             <div class="uifn_picture_url">
-                <span class="grid-left">Url</span>
-                <input class="url" data-bind="click: select" readonly="readonly"/>
+                <input class="url urlInput" readonly="readonly"/>
             </div>
             
             <div class="uifn_size_option">
-                <select data-bind="value: pictSize">
-                    <option value="128">128</option>
-                    <option value="74">74</option>
-                    <option value="48">48</option>
-                    <option value="24">24</option>
-                    <option value="up">Up</option>
-                </select>
+                <div>
+                    <input type="radio" name="img-size" value="128" checked>
+                    128
+                </div>
+                <div>
+                    <input type="radio" name="img-size" value="73">
+                    73
+                </div>
+                <div>
+                    <input type="radio" name="img-size" value="48">
+                    48
+                </div>
+                <div>
+                    <input type="radio" name="img-size" value="24">
+                    24
+                </div>
             </div>
             
             <div class="uifn_btn_group">
                 <div class="uifn_btn uifn_generate_pict btn">Generate UI Face</div>
                 
-                <div class="uifn_btn btn">Insert at caret position</div>
+                <div class="uifn_btn dialog-button btn" data-bind="click: onPictInsert">Insert at caret position</div>
             </div>
         </div>
         
