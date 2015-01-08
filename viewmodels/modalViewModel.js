@@ -7,8 +7,24 @@ define(function(require, exports, module){
         DocumentManager = brackets.getModule("document/DocumentManager"),
         EditorManager = brackets.getModule("editor/EditorManager"),
         nodeConnection = new NodeConnection();
+    
+        //generate country list
+        var countryList = $(".uifn_country");
+        var countries '<option value="all">All</option>';
+        var nameDB = "https://raw.githubusercontent.com/thm/uinames/master/names.json";
+        $.get(nameDB, function($data){
 
-    function chain() {
+            var obj = JSON.parse($data);
+            var country;
+            console.log("LENGTHHHHHH --> "+obj.length);
+            for(var i=0; i<obj.length; i++){
+                console.log("++++++++++++");
+                console.log(countries);
+               countries = countries+'<option value="'+obj[i].country+'">'+obj[i].country+'</option>';
+            }
+        });
+
+    /*function chain() {
         var functions = Array.prototype.slice.call(arguments, 0);
         if (functions.length > 0) {
             var firstFunction = functions.shift();
@@ -49,102 +65,94 @@ define(function(require, exports, module){
 
         });
         return loadPromise;
-    }
+    }*/
     //chain(connect, loadClipboard, clipboardLoad);
 
     function ModalViewModel(){
         var previewBox = $(".uifn_user_picture_box"),
-            imgSize = $('input[name=img-size]:checked').val(),
             img,
-            $urlInput = $(".urlInput");
+            $urlInput = $(".urlInput"),
+            img128,
+            img73,
+            img48,
+            img24,
+            currentUsername;
 
+        $urlInput.on("click", function(){
+            $(this).select();
+        });
+        
         $(".uifn_generate_pict").on("click", function(e){
+            
+            
             $.getJSON("http://uifaces.com/api/v1/random", function($picture){
 
-                switch(imgSize){
-                    case "128":
-                        img = $picture.image_urls.epic;
-                        break;
-                    
-                    case "73":
-                        img = $picture.image_urls.bigger;
-                        break;
-                        
-                    case "48":
-                        img = $picture.image_urls.normal;
-                        break;
-                    
-                    case "24":
-                        img = $picture.image_urls.mini;
-                        break;
-                        
-                    default:
-                        img = "http://placehold.it/128x128&text=ERROR";
-                }
+                img128 = $picture.image_urls.epic;
+                img73 = $picture.image_urls.bigger;
+                img48 = $picture.image_urls.normal;
+                img24 = $picture.image_urls.mini;
+                currentUsername = $picture.username;
                 
                 previewBox.children("img").attr("src", img);
                 
-                $urlInput.val(function(){
-                    return img;
-                }).on("click", function(){
-                    $(this).select();
-                });
-                
                 $(".uifn_user_name")
-                    .attr("href", "http://uifaces.com/"+$picture.username)
-                    .text($picture.username);
+                    .attr("href", "http://uifaces.com/"+currentUsername)
+                    .text(currentUsername);
+                
+                setImg();
                  
             });
         });
         
-        /*this.onGeneratePicture = function(model, event){
-            console.log("onGeneratePicture");
-            
-            $.getJSON("http://uifaces.com/api/v1/random", function($picture){
-                
-                this.pictUrl = ko.computed(function(){
-                
-                    $(".uifn_user_name").text($picture.username);
-                    
-                   return $picture.epic;
-                }, this);
-                 
-            });
-        });*/
-
-        /*this.url = ko.computed(function(){
-            var url = 'http://lorempicsum.com/' +
-                (this.theme() != 0? this.theme() : '')+ '/'+
-                this.width() + '/' +
-                this.height() + '/' +
-                this.image();
-            return url;
-        }, this);*/
+        $('input[name=img-size]').on("change", function(e){
+            setImg();
+        });
         
-
-        /*this.onPreview = _.bind(function(model, event){
-            var previewBox = $('.preview-box');
-
-            previewBox.empty();
-            previewBox.append('<img class="placeholder-preview" src="'+ this.url() +'" />');
+        function setImg(){
+            console.log("image set");
             
-            $('.placeholder-preview').error(function(){
-               previewBox.empty();
-                previewBox.append('<p class="placeholder-error">This placeholder is not available for this size :(</p>');
-            });
+            var imgSize = $('input[name=img-size]:checked').val();
+            switch(imgSize){
+                
+                case "128":
+                    img = img128;
+                    $("#uifn_picture").attr("src", img128);
+                    $urlInput.val(function(){
+                        return img;
+                    });
+                    console.log(img128);
+                    break;
+                case "73":
+                    img = img73;
+                    $("#uifn_picture").attr("src", img73);
+                    $urlInput.val(function(){
+                        return img;
+                    });
+                    console.log("73");
+                    break;
+                case "48":
+                    img = img48;
+                    $("#uifn_picture").attr("src", img48);
+                    $urlInput.val(function(){
+                        return img;
+                    });
+                    console.log("48");
+                    break;
+                case "24":
+                    img = img24;
+                    $("#uifn_picture").attr("src", img24);
+                    $urlInput.val(function(){
+                        return img;
+                    });
+                    console.log("24");
+                    break;
+                default:
+                    console.log("ERROR charging img size");
+            }
+        }
 
-            event.stopPropagation();
-        }, this);
 
-        this.select = function(model, event){
-            $(event.target).select();
-            return true;
-        }*/
-
-        this.onUrlCopy = _.bind(function(model, event){
-            nodeConnection.domains.clipboard.callCopy(this.url());
-        }, this);
-
+        //Insert on current document
         this.onPictInsert = _.bind(function(model, event){
             var currentDoc = DocumentManager.getCurrentDocument(),
                 editor = EditorManager.getCurrentFullEditor(),
@@ -159,6 +167,9 @@ define(function(require, exports, module){
             editor.setSelection(pos, posEnd);
         }, this);
         
+        //Set countries list
+        
+        countryList.html(countries);
     }
 
     module.exports = ModalViewModel;

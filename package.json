@@ -1,7 +1,7 @@
 {
     "name": "vincentloy.ui-faces-and-names",
-    "title": "Lorem Picsum for Brackets",
-    "description": "Generate placeholder Images from lorempicsum.com, place quickly pictures from Futurama, The Simpsons, Rio, Finding Nemo and Up!.",
+    "title": "UI Faces & Names for Brackets",
+    "description": "Generate random images from over 6K+ faces, Perfect to place quickly user pictures & names for front-end development!.",
     "homepage": "https://github.com/VincentLoy/brackets-lorem-picsum",
     "version": "1.0.0",
     "author": "Vincent Loy <vincent.loy1@gmail.com> (http://vincent-loy.fr)",

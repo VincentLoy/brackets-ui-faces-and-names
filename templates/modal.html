@@ -13,7 +13,7 @@
                 picture of <a href="" class="uifn_user_name"></a>
             </p>
             <div class="uifn_user_picture_box">
-                <img src="http://placehold.it/128x128">
+                <img id="uifn_picture" src="http://placehold.it/128x128">
             </div>
             <div class="uifn_picture_url">
                 <input class="url urlInput" readonly="readonly"/>
@@ -22,19 +22,19 @@
             <div class="uifn_size_option">
                 <div>
                     <input type="radio" name="img-size" value="128" checked>
-                    128
+                    128x128px
                 </div>
                 <div>
                     <input type="radio" name="img-size" value="73">
-                    73
+                    73x73px
                 </div>
                 <div>
                     <input type="radio" name="img-size" value="48">
-                    48
+                    48x48px
                 </div>
                 <div>
                     <input type="radio" name="img-size" value="24">
-                    24
+                    24x24px
                 </div>
             </div>
             
@@ -49,6 +49,38 @@
         <div class="uifn_box">
             <h3>UI Names</h3>
             <hr>
+            
+            <div class="uifn_gender">
+                <div>
+                    <input type="radio" name="gender" value="both" checked>
+                    Both
+                </div>
+                <div>
+                    <input type="radio" name="gender" value="male">
+                    male
+                </div>
+                <div>
+                    <input type="radio" name="gender" value="female">
+                    female
+                </div>
+            </div>
+            
+            <div>
+                Choose Country
+                <select class="uifn_country">
+                    <option value="all">All</option>
+                </select>
+            </div>
+            
+            <div class="uinf_name">
+                <p>NAME'LL BE HERE</p>
+            </div>
+            
+            <div class="uifn_btn_group">
+                <div class="uifn_btn uifn_generate_pict btn">Generate UI Name</div>
+                
+                <div class="uifn_btn dialog-button btn">Insert at caret position</div>
+            </div>
         </div>
         
         <!--<div>
@@ -91,13 +123,6 @@
             <span class="grid-left">Url</span>
             <input class="url" data-bind="value: url, click: select" readonly="readonly"/>
         </div>-->
-        
-        <div class="preview-box"></div>
-    </div>
-    <div class="modal-footer">
-        <button class="dialog-button btn hide" data-bind="click: onUrlCopy">Copy url to clipboard</button>
-        <button class="dialog-button btn" data-bind="click: onUrlInsert">Insert at caret position</button>
-        <button class="dialog-button btn" data-bind="click: onPreview">Preview</button>
     </div>
     <p class="text-center">
         All placholders are from <a href="http://lorempicsum.com">lorempicsum.com</a>
