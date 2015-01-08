@@ -1,0 +1,97 @@
+<div class="ext_uifn modal">
+    <div class="modal-header">
+        <h1 class="dialog-title">UI Faces & Names</h1>
+        <button class="dialog-button btn primary close-button" data-button-id="ok">X</button>
+    </div>
+    <div class="modal-body">
+        
+        <!-- UI FACES -->
+        <div class="uifn_box">
+            <h3>UI Faces</h3>
+            <hr>
+            <p class="uifn_user">
+                picture of <span class="uifn_user_name"></span>
+            </p>
+            <div class="uifn_user_picture_box">
+                <img src="http://placehold.it/128x128">
+            </div>
+            <div class="uifn_picture_url">
+                <span class="grid-left">Url</span>
+                <input class="url" data-bind="click: select" readonly="readonly"/>
+            </div>
+            
+            <div class="uifn_size_option">
+                <select data-bind="value: pictSize">
+                    <option value="128">128</option>
+                    <option value="74">74</option>
+                    <option value="48">48</option>
+                    <option value="24">24</option>
+                    <option value="up">Up</option>
+                </select>
+            </div>
+            
+            <div class="uifn_btn_group">
+                <div class="uifn_btn uifn_generate_pict btn">Generate UI Face</div>
+                
+                <div class="uifn_btn btn">Insert at caret position</div>
+            </div>
+        </div>
+        
+        <!-- UI FACES -->
+        <div class="uifn_box">
+            <h3>UI Names</h3>
+            <hr>
+        </div>
+        
+        <!--<div>
+            <span class="grid-left">Width</span>
+            <input type="range" min="1" max="1920" data-bind="value: width">
+            <input class="size" data-bind="value: width" />
+        </div>
+        <div>
+            <span class="grid-left">Height</span>
+            <input type="range" name="points" min="1" max="1080" data-bind="value: height">
+            <input class="size"  data-bind="value: height" />
+        </div>
+        <div>
+            <span class="grid-left">Theme</span>
+            <select class="theme" data-bind="value: theme">
+                <option value="nemo">Finding Nemo</option>
+                <option value="futurama">Futurama</option>
+                <option value="rio">rio</option>
+                <option value="simpsons">The Simpsons</option>
+                <option value="up">Up</option>
+            </select>
+        </div>
+        
+        <div>
+            <span class="grid-left">Image Number</span>
+            <select class="theme" data-bind="value: image">
+                <option value="1">Image 1</option>
+                <option value="2">Image 2</option>
+                <option value="3">Image 3</option>
+                <option value="4">Image 4</option>
+                <option value="5">Image 5</option>
+                <option value="6">Image 6</option>
+                <option value="7">Image 7</option>
+                <option value="8">Image 8</option>
+                <option value="9">Image 9</option>
+            </select>
+        </div>
+        
+        <div>
+            <span class="grid-left">Url</span>
+            <input class="url" data-bind="value: url, click: select" readonly="readonly"/>
+        </div>-->
+        
+        <div class="preview-box"></div>
+    </div>
+    <div class="modal-footer">
+        <button class="dialog-button btn hide" data-bind="click: onUrlCopy">Copy url to clipboard</button>
+        <button class="dialog-button btn" data-bind="click: onUrlInsert">Insert at caret position</button>
+        <button class="dialog-button btn" data-bind="click: onPreview">Preview</button>
+    </div>
+    <p class="text-center">
+        All placholders are from <a href="http://lorempicsum.com">lorempicsum.com</a>
+    </p>
+</div>

@@ -1,0 +1,126 @@
+#lorempicsum_icon{
+    content: "";
+    cursor: pointer;
+}
+
+.ext_uifn{
+    width: 900px;
+}
+
+.ext_uifn .modal-body{
+    position: relative;
+}
+
+.ext_uifn .uifn_box{
+    width: 400px;
+    float: left;
+}
+
+.ext_uifn .uifn_user{
+    text-align: center;
+}
+
+.ext_uifn .uifn_box h3{
+    text-align: center;
+}
+
+
+.ext_uifn .uifn_user_picture_box{
+    display: table;
+    margin: auto;
+    width: 128px;
+    height: 128px;
+    overflow: hidden;
+    border-radius: 50%;
+    border: 2px solid #4F82E9;
+    margin-bottom: 25px;
+}
+
+.ext_uifn .uifn_picture_url{
+    display: table;
+    margin: auto;
+}
+
+.ext_uifn .uifn_size_option{
+    display: table;
+    margin: auto;
+}
+
+.ext_uifn .uifn_btn_group{
+    display: table;
+    margin: auto;
+    padding: 10px 15px;
+}
+.ext_uifn .uifn_btn{
+    display: table;
+    margin: 0 15px;
+    cursor: pointer;
+    display: inline-block;
+}
+.ext_uifn .uifn_size_option > div{
+    display: inline-block;
+    padding: 15px 5px;
+}
+
+.ext_uifn input.size{
+    width: 100px;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    color: rgb(85, 85, 85);
+    padding: 4px 6px;
+    border-radius: 4px;
+    border: 1px solid rgb(178, 181, 181);
+}
+
+.ext_uifn input.url{
+    width: 320px;
+    margin-bottom: 2px;
+    color: rgb(85, 85, 85);
+    padding: 4px 6px;
+    border-radius: 4px;
+    border: 1px solid rgb(178, 181, 181);
+    cursor: pointer;
+}
+
+.ext_uifn input[type="checkbox"]{
+    margin-bottom: 5px;
+}
+
+.ext_uifn select.theme{
+    width: 333px;
+}
+
+.ext_uifn .grid-left{
+    width: 65px;
+    display: inline-block;
+}
+
+.ext_uifn .preview-box{
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    width: 165px;
+    height: 130px;
+    overflow: hidden;
+}
+
+.ext_uifn .preview-box > img{
+    max-width: 165px;
+    max-height: 130px;
+    border-radius: 2px;
+}
+
+.ext_uifn .preview-box > p{
+    text-align: center;
+    color: #e74c3c;
+}
+
+.ext_uifn .dialog-button{
+    cursor: pointer;
+}
+
+.ext_uifn .close-button{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}

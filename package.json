@@ -1,0 +1,25 @@
+{
+    "name": "vincentloy.ui-faces-and-names",
+    "title": "Lorem Picsum for Brackets",
+    "description": "Generate placeholder Images from lorempicsum.com, place quickly pictures from Futurama, The Simpsons, Rio, Finding Nemo and Up!.",
+    "homepage": "https://github.com/VincentLoy/brackets-lorem-picsum",
+    "version": "0.1.2",
+    "author": "Vincent Loy <vincent.loy1@gmail.com> (http://vincent-loy.fr)",
+    "license": "MIT",
+    "engines": {
+        "brackets": ">=0.32.0"
+    },
+    "keywords": [
+        "generate", 
+        "images",
+        "placeholder",
+        "lorem", 
+        "picsum",
+        "lorem picsum",
+        "nemo",
+        "up",
+        "futurama",
+        "simpsons",
+        "rio"
+    ]
+}
