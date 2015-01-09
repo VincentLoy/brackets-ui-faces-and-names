@@ -7,22 +7,6 @@ define(function(require, exports, module){
         DocumentManager = brackets.getModule("document/DocumentManager"),
         EditorManager = brackets.getModule("editor/EditorManager"),
         nodeConnection = new NodeConnection();
-    
-        //generate country list
-        var countryList = $(".uifn_country");
-        var countries '<option value="all">All</option>';
-        var nameDB = "https://raw.githubusercontent.com/thm/uinames/master/names.json";
-        $.get(nameDB, function($data){
-
-            var obj = JSON.parse($data);
-            var country;
-            console.log("LENGTHHHHHH --> "+obj.length);
-            for(var i=0; i<obj.length; i++){
-                console.log("++++++++++++");
-                console.log(countries);
-               countries = countries+'<option value="'+obj[i].country+'">'+obj[i].country+'</option>';
-            }
-        });
 
     /*function chain() {
         var functions = Array.prototype.slice.call(arguments, 0);
@@ -72,14 +56,68 @@ define(function(require, exports, module){
         var previewBox = $(".uifn_user_picture_box"),
             img,
             $urlInput = $(".urlInput"),
+            $nameInput = $(".nameInput"),
+            $uifnInputs = $(".uifn_input"),
+            $countries = $(".uifn_country"),
+            $nameContainer = $(".uifn_name"),
             img128,
             img73,
             img48,
             img24,
+            name,
+            surname,
+            fullName,
+            gender = "",
+            country = "",
             currentUsername;
+        
+         //generate country list
+        $.get("https://raw.githubusercontent.com/thm/uinames/master/names.json", function($data){
 
-        $urlInput.on("click", function(){
-            $(this).select();
+            var obj = JSON.parse($data);
+            var country;
+            console.log("LENGTHHHHHH --> "+obj.length);
+            for(var i=0; i<obj.length; i++){
+                console.log("++++++++++++");
+                console.log(obj[i].country);
+               $countries.append('<option value="'+obj[i].country.toLowerCase()+'">'+obj[i].country+'</option>');
+            }
+        });
+        
+        $('input[name=gender]').on("change", function(e){
+            gender = $('input[name=gender]:checked').val();
+            if(gender == "both"){
+                gender = "";
+            }
+            else{
+                gender = "&gender="+gender;
+            }
+            console.log("http://api.uinames.com/?"+country+gender);
+        });
+        
+        $('.uifn_country').on("change", function(e){
+            country = $('.uifn_country').val();
+            console.log(country);
+            if(country == "all"){
+                country = "";
+            }
+            else{
+                country = "&country="+country;
+            }
+            console.log("http://api.uinames.com/?"+country+gender);
+        });
+        
+        $(".uifn_generate_name").on("click",function(){
+           $.getJSON("http://api.uinames.com/?"+country+gender, function($name){
+               name = $name.name;
+               surname = $name.surname;
+               fullName = $name.name+" "+$name.surname;
+               $(".uifn_name").text(fullName);
+               $(".uifn_current_country").text("Country : "+$name.country+" - Gender : "+$name.gender);
+               $nameInput.val(function(){
+                        return fullName;
+                    });
+                });
         });
         
         $(".uifn_generate_pict").on("click", function(e){
@@ -167,9 +205,24 @@ define(function(require, exports, module){
             editor.setSelection(pos, posEnd);
         }, this);
         
-        //Set countries list
+        this.onNameInsert = _.bind(function(model, event){
+            var currentDoc = DocumentManager.getCurrentDocument(),
+                editor = EditorManager.getCurrentFullEditor(),
+                pos = editor.getCursorPos(),
+                posEnd;
+
+            currentDoc.replaceRange(fullName, pos);
+            posEnd = $.extend({}, pos);
+            posEnd.ch += fullName.length;
+
+            editor.focus();
+            editor.setSelection(pos, posEnd);
+        }, this);
         
-        countryList.html(countries);
+        $uifnInputs.on("click", function(){
+            $(this).select();
+        });
+        
     }
 
     module.exports = ModalViewModel;

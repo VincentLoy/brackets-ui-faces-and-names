@@ -5,7 +5,7 @@ define(function(require, exports, module){
     function init(){
         var imagePath = config.path + 'images/icon.png';
 
-        icon = $('<a title="Lorem Picsum" id="lorempicsum_icon"></a>');
+        icon = $('<a title="UI Faces & Names" id="lorempicsum_icon"></a>');
 
         icon.css('background', 'url(' + config.path + 'images/icon.png)');
         icon.appendTo($("#main-toolbar .buttons"));

@@ -1,7 +1,7 @@
 {
     "name": "vincentloy.ui-faces-and-names",
     "title": "UI Faces & Names for Brackets",
-    "description": "Generate random images from over 6K+ faces, Perfect to place quickly user pictures & names for front-end development!.",
+    "description": "Generate random images & names from over 6K+ pictures & 1M+ available names. You can choose names from 40+ countries and specific the gender",
     "homepage": "https://github.com/VincentLoy/brackets-lorem-picsum",
     "version": "1.0.0",
     "author": "Vincent Loy <vincent.loy1@gmail.com> (http://vincent-loy.fr)",
@@ -14,12 +14,12 @@
         "images",
         "placeholder",
         "lorem", 
-        "picsum",
-        "lorem picsum",
-        "nemo",
-        "up",
-        "futurama",
-        "simpsons",
-        "rio"
+        "ui",
+        "ui faces",
+        "ui names",
+        "names",
+        "country",
+        "generator",
+        "faces"
     ]
 }

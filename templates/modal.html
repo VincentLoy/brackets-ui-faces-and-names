@@ -9,14 +9,16 @@
         <div class="uifn_box">
             <h3>UI Faces</h3>
             <hr>
-            <p class="uifn_user">
-                picture of <a href="" class="uifn_user_name"></a>
-            </p>
-            <div class="uifn_user_picture_box">
-                <img id="uifn_picture" src="http://placehold.it/128x128">
+            <div class="uifn_top">
+                <p class="uifn_user">
+                    picture of <a href="" class="uifn_user_name"></a>
+                </p>
+                <div class="uifn_user_picture_box">
+                    <img id="uifn_picture" src="http://placehold.it/128x128&text=PREVIEW+BOX">
+                </div>
             </div>
             <div class="uifn_picture_url">
-                <input class="url urlInput" readonly="readonly"/>
+                <input class="url urlInput uifn_input" readonly="readonly"/>
             </div>
             
             <div class="uifn_size_option">
@@ -49,82 +51,50 @@
         <div class="uifn_box">
             <h3>UI Names</h3>
             <hr>
-            
-            <div class="uifn_gender">
-                <div>
-                    <input type="radio" name="gender" value="both" checked>
-                    Both
+            <div class="uifn_top">
+                <div class="uifn_gender">
+                    <div>
+                        <input type="radio" name="gender" value="both" checked>
+                        Both
+                    </div>
+                    <div>
+                        <input type="radio" name="gender" value="male">
+                        male
+                    </div>
+                    <div>
+                        <input type="radio" name="gender" value="female">
+                        female
+                    </div>
                 </div>
-                <div>
-                    <input type="radio" name="gender" value="male">
-                    male
+
+                <div class="uifn_country_box">
+                    <select class="uifn_country">
+                        <option value="all">Random Country</option>
+                    </select>
                 </div>
+
                 <div>
-                    <input type="radio" name="gender" value="female">
-                    female
+                    <p class="uifn_name">NAME'LL BE HERE</p>
+                    <p class="uifn_current_country"></p>
                 </div>
             </div>
             
-            <div>
-                Choose Country
-                <select class="uifn_country">
-                    <option value="all">All</option>
-                </select>
+            <div class="uifn_name_input">
+                <input class="nameInput uifn_input" readonly="readonly"/>
             </div>
             
-            <div class="uinf_name">
-                <p>NAME'LL BE HERE</p>
-            </div>
-            
-            <div class="uifn_btn_group">
-                <div class="uifn_btn uifn_generate_pict btn">Generate UI Name</div>
+            <div class="uifn_btn_group uifn_btn_names">
+                <div class="uifn_btn uifn_generate_name btn">Generate UI Name</div>
                 
-                <div class="uifn_btn dialog-button btn">Insert at caret position</div>
+                <div class="uifn_btn dialog-button btn" data-bind="click: onNameInsert">Insert at caret position</div>
             </div>
         </div>
-        
-        <!--<div>
-            <span class="grid-left">Width</span>
-            <input type="range" min="1" max="1920" data-bind="value: width">
-            <input class="size" data-bind="value: width" />
-        </div>
-        <div>
-            <span class="grid-left">Height</span>
-            <input type="range" name="points" min="1" max="1080" data-bind="value: height">
-            <input class="size"  data-bind="value: height" />
-        </div>
-        <div>
-            <span class="grid-left">Theme</span>
-            <select class="theme" data-bind="value: theme">
-                <option value="nemo">Finding Nemo</option>
-                <option value="futurama">Futurama</option>
-                <option value="rio">rio</option>
-                <option value="simpsons">The Simpsons</option>
-                <option value="up">Up</option>
-            </select>
-        </div>
-        
-        <div>
-            <span class="grid-left">Image Number</span>
-            <select class="theme" data-bind="value: image">
-                <option value="1">Image 1</option>
-                <option value="2">Image 2</option>
-                <option value="3">Image 3</option>
-                <option value="4">Image 4</option>
-                <option value="5">Image 5</option>
-                <option value="6">Image 6</option>
-                <option value="7">Image 7</option>
-                <option value="8">Image 8</option>
-                <option value="9">Image 9</option>
-            </select>
-        </div>
-        
-        <div>
-            <span class="grid-left">Url</span>
-            <input class="url" data-bind="value: url, click: select" readonly="readonly"/>
-        </div>-->
     </div>
-    <p class="text-center">
-        All placholders are from <a href="http://lorempicsum.com">lorempicsum.com</a>
-    </p>
+    
+    <div class="modal-footer">
+        <p class="text-center">
+            UI Faces are from <a href="http://uifaces.com/authorized">uifaces.com</a> - 
+            UI Names generated by <a href="http://uinames.com/">uinames.com</a>
+        </p>
+    </div>
 </div>
