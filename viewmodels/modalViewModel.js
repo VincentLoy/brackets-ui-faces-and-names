@@ -8,50 +8,6 @@ define(function(require, exports, module){
         EditorManager = brackets.getModule("editor/EditorManager"),
         nodeConnection = new NodeConnection();
 
-    /*function chain() {
-        var functions = Array.prototype.slice.call(arguments, 0);
-        if (functions.length > 0) {
-            var firstFunction = functions.shift();
-            var firstPromise = firstFunction.call();
-            firstPromise.done(function () {
-                chain.apply(null, functions);
-            });
-        }
-    }
-
-    function connect() {
-        var connectionPromise = nodeConnection.connect(true);
-        connectionPromise.fail(function () {
-            console.error("[brackets-simple-node] failed to connect to node");
-        });
-        return connectionPromise;
-    }
-
-
-    function loadClipboard() {
-        var path = ExtensionUtils.getModulePath(module, "node/clipboard");
-        var loadPromise = nodeConnection.loadDomains([path], true);
-        loadPromise.fail(function (e) {
-            console.log(e);
-            console.log("[brackets-simple-node] failed to load clipboard");
-        });
-        return loadPromise;
-    }
-
-
-    function clipboardLoad() {
-        var loadPromise = nodeConnection.domains.clipboard.load();
-        loadPromise.fail(function (err) {
-            console.error("[brackets-simple-node] failed to run clipboard.load", err);
-        });
-        loadPromise.done(function (err) {
-            //loaded
-
-        });
-        return loadPromise;
-    }*/
-    //chain(connect, loadClipboard, clipboardLoad);
-
     function ModalViewModel(){
         var previewBox = $(".uifn_user_picture_box"),
             img,
