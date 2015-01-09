@@ -32,10 +32,8 @@ define(function(require, exports, module){
 
             var obj = JSON.parse($data);
             var country;
-            console.log("LENGTHHHHHH --> "+obj.length);
+
             for(var i=0; i<obj.length; i++){
-                console.log("++++++++++++");
-                console.log(obj[i].country);
                $countries.append('<option value="'+obj[i].country.toLowerCase()+'">'+obj[i].country+'</option>');
             }
         });
@@ -103,7 +101,6 @@ define(function(require, exports, module){
         });
         
         function setImg(){
-            console.log("image set");
             
             var imgSize = $('input[name=img-size]:checked').val();
             switch(imgSize){
@@ -114,7 +111,6 @@ define(function(require, exports, module){
                     $urlInput.val(function(){
                         return img;
                     });
-                    console.log(img128);
                     break;
                 case "73":
                     img = img73;
@@ -122,7 +118,6 @@ define(function(require, exports, module){
                     $urlInput.val(function(){
                         return img;
                     });
-                    console.log("73");
                     break;
                 case "48":
                     img = img48;
@@ -130,7 +125,6 @@ define(function(require, exports, module){
                     $urlInput.val(function(){
                         return img;
                     });
-                    console.log("48");
                     break;
                 case "24":
                     img = img24;
@@ -138,7 +132,6 @@ define(function(require, exports, module){
                     $urlInput.val(function(){
                         return img;
                     });
-                    console.log("24");
                     break;
                 default:
                     console.log("ERROR charging img size");
