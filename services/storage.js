@@ -1,31 +1,31 @@
-define(function(require, exports){
+define(function (require, exports) {
     var storage,
         _ = require('../vendor/lodash'),
         storageKey = "ext_injectcss";
 
-    function init(){
+    function init() {
         storage = localStorage.getItem(storageKey) || {};
     }
 
-    function add(id, data){
+    function add(id, data) {
         storage[id] = data;
         save();
     }
 
-    function remove(id){
+    function remove(id) {
         delete storage[id];
         save();
     }
 
-    function save(){
+    function save() {
         localStorage.setItem(storageKey, storage);
     }
 
-    function get(id){
+    function get(id) {
         return storage[id];
     }
 
-    function toArray(){
+    function toArray() {
         return _.toArray(storage);
     }
 
