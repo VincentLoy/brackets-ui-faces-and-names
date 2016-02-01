@@ -7,9 +7,9 @@ define(function (require, exports) {
         }
 
         fs.showSaveDialog('Save image', './', '', callback);
-    }
+    };
 
     exports.saveFile = function (path, data, options, callback) {
         fs.writeFile(path, data, options, callback);
-    }
+    };
 });
