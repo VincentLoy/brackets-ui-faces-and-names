@@ -3,7 +3,7 @@
     "title": "UI Faces & Names for Brackets",
     "description": "Generate random images & names from over 6K+ pictures & 1M+ available names. You can choose names from 40+ countries and specific the gender",
     "homepage": "https://github.com/VincentLoy/brackets-ui-faces-and-names",
-    "version": "1.0.1",
+    "version": "1.1.0",
     "author": "Vincent Loy <vincent.loy1@gmail.com> (http://vincent-loy.fr)",
     "license": "MIT",
     "engines": {
