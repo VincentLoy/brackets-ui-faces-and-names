@@ -1,3 +1,5 @@
+# DEPRECATED
+
 Brackets UI Faces & Names
 ====================
 
